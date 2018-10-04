@@ -1,12 +1,12 @@
-<app-header></app-header>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 <main role="main">
   <section class="jumbotron bg-light">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
           <app-corrida></app-corrida>
-          <app-recipes></app-recipes>
-          <app-shopping-list></app-shopping-list>
+          <app-recipes *ngIf="featureLoaded === 'recipe'"></app-recipes>
+          <app-shopping-list *ngIf="featureLoaded !== 'recipe'"></app-shopping-list>
         </div>
       </div>
     </div>
